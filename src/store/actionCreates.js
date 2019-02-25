@@ -12,4 +12,6 @@ export const addItemAction = () => ({
 export const deleteItemAction = (index)=>({
   type: type.DELETE_ITEM,
   index
-})
+});
+
+export const handleStoreChange = (self,store)=>(self.setState(store.getState()));

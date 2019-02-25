@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { List } from 'antd';
 import store from '../store';
 import * as actionCreate from '../store/actionCreates';
-import { handleStoreChange } from '../store/storeChangeUtil';
 
 
 class TodoListList extends Component {
@@ -13,7 +12,7 @@ class TodoListList extends Component {
     // this.handleStoreChange = this.handleStoreChange.bind(this);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
     // store.subscribe(this.handleStoreChange);
-    store.subscribe(()=>handleStoreChange(this,store));
+    store.subscribe(()=>actionCreate.handleStoreChange(this,store));
   }
 
   // handleStoreChange(){
