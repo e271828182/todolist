@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { List } from 'antd';
 import store from '../store';
 import * as actionCreate from '../store/actionCreates';
+import { handleStoreChange } from '../store/storeChangeUtil';
 
 
 class TodoListList extends Component {
@@ -9,14 +10,15 @@ class TodoListList extends Component {
   constructor(props){
     super(props);
     this.state = store.getState();
-    this.handleStoreChange = this.handleStoreChange.bind(this);
+    // this.handleStoreChange = this.handleStoreChange.bind(this);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
-    store.subscribe(this.handleStoreChange);
+    // store.subscribe(this.handleStoreChange);
+    store.subscribe(()=>handleStoreChange(this,store));
   }
 
-  handleStoreChange(){
-    this.setState(store.getState());
-  }
+  // handleStoreChange(){
+  //   this.setState(store.getState());
+  // }
 
   handleDeleteItem(index){
     const action = actionCreate.deleteItemAction(index);

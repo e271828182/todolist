@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button ,Input } from 'antd';
 import store from '../store';
 import * as actionCreate from '../store/actionCreates';
+import { handleStoreChange } from '../store/storeChangeUtil';
 
 class TodoListInput extends Component {
 
@@ -9,9 +10,8 @@ class TodoListInput extends Component {
     super(props);
     this.state = store.getState();
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleStoreChange = this.handleStoreChange.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
-    store.subscribe(this.handleStoreChange);
+    store.subscribe(()=>handleStoreChange(this,store));
   }
 
   render() {
@@ -31,10 +31,6 @@ class TodoListInput extends Component {
   handleInputChange(e){
     const action = actionCreate.getInputChangeAction(e.target.value);
     store.dispatch(action);
-  }
-
-  handleStoreChange(){
-    this.setState(store.getState());
   }
 
   handleButtonClick(){
