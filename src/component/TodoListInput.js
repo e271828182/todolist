@@ -3,7 +3,7 @@ import { Button ,Input } from 'antd';
 import store from '../store';
 import * as actionCreate from '../store/actionCreates';
 
-class TodoInput extends Component {
+class TodoListInput extends Component {
 
   constructor(props){
     super(props);
@@ -44,4 +44,4 @@ class TodoInput extends Component {
 
 }
 
-export default TodoInput;
+export default TodoListInput;

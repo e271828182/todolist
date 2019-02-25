@@ -1,8 +1,8 @@
 import * as type from './actionTypes';
 
 const defaultState = {
-  inputValue: 'aaa',
-  list: [1,2,3]
+  inputValue: '',
+  list: []
 }
 
 export default (state=defaultState, action) => {
