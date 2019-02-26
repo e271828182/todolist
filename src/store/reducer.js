@@ -26,9 +26,9 @@ export default (state=defaultState, action) => {
     return newState;
   }
 
-  if(action.type === type.GET_INIT_LIST){
+  if(action.type === type.GET_INIT_LIST_SUCCESS){
     const newState = JSON.parse(JSON.stringify(state));
-    newState.list = action.data?action.data:['aaa','111','33'];
+    newState.list = action.data;
     return newState;
   }
   return state;

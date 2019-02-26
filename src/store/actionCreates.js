@@ -19,4 +19,9 @@ export const handleStoreChange = (self,store)=>self.setState(store.getState());
 export const initListAction = (data) => ({
   type: type.GET_INIT_LIST,
   data
-})
+});
+
+export const initListActionSuccess = (data) => ({
+  type: type.GET_INIT_LIST_SUCCESS,
+  data
+});

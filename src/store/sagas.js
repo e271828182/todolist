@@ -6,15 +6,17 @@ import * as actionCreate from './actionCreates';
 function* getInitList(){
   try{
     const res = yield axios.get('/api/todolist');
-    const action = actionCreate.initListAction(res.data);
+    const action = actionCreate.initListActionSuccess(res.data);
     yield put(action);
   }catch(e){
+    console.log(e);
     console.log('list 请求失败');
+    const action = actionCreate.initListActionSuccess(['a1','b2']);
+    yield put(action);
   }
 }
 
-function* mySaga() {
-  yield takeEvery(type.GET_INIT_LIST, getInitList);
-}
 
-export default mySaga;
+export default function* mySaga() {
+  yield takeEvery(type.GET_INIT_LIST, getInitList);
+};
