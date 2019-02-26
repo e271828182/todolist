@@ -9,15 +9,9 @@ class TodoListList extends Component {
   constructor(props){
     super(props);
     this.state = store.getState();
-    // this.handleStoreChange = this.handleStoreChange.bind(this);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
-    // store.subscribe(this.handleStoreChange);
     store.subscribe(()=>actionCreate.handleStoreChange(this,store));
   }
-
-  // handleStoreChange(){
-  //   this.setState(store.getState());
-  // }
 
   handleDeleteItem(index){
     const action = actionCreate.deleteItemAction(index);
