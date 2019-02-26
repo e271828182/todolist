@@ -14,4 +14,9 @@ export const deleteItemAction = (index)=>({
   index
 });
 
-export const handleStoreChange = (self,store)=>(self.setState(store.getState()));
+export const handleStoreChange = (self,store)=>self.setState(store.getState());
+
+export const initListAction = (data) => ({
+  type: type.GET_INIT_LIST,
+  data
+})
